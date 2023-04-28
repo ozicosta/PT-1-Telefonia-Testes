@@ -11,6 +11,7 @@ public class Assinante {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.numero = numero;
+		this.numChamadas = 0;
 	}
 
 	public long getCpf() {
@@ -19,7 +20,7 @@ public class Assinante {
 
 	@Override
 	public String toString() {
-		return "Assinante [cpf=" + cpf + ", nome=" + nome + ", numero=" + numero + ", numero de cahamdas=" + numChamadas
+		return "Assinante [cpf=" + cpf + ", nome=" + nome + ", numero=" + numero + ", numero de chamadas=" + numChamadas
 				+ "]";
 	}
 

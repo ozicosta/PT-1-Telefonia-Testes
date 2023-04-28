@@ -10,8 +10,9 @@ public class Chamada {
 
 	// Criar uma instância do GregorianCalendar com a data e hora atual
 
-	public Chamada() {
-
+	public Chamada(GregorianCalendar data, int duracao) {
+		this.data = data;
+		this.duracao = duracao;
 	}
 
 	public GregorianCalendar getData() {
