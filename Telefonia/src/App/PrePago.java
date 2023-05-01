@@ -4,12 +4,15 @@ import java.util.GregorianCalendar;
 
 public class PrePago extends Assinante {
 
+	private float assinatura;//apos declarar esta variavel o problema da linha 15 parou
+
 	private int numRecargas;
 	private float creditos;
 	private Recarga[] recargas;
 
-	public PrePago(long cpf, String nome, int numero) {
+	public PrePago(long cpf, String nome, int numero,float assinatura) {
 		super(cpf, nome, numero);
+		this.assinatura = assinatura;
 		this.recargas = new Recarga[10];//iniciei o array com dez espaços de inicio mas podemos alterar depois
 	}
 

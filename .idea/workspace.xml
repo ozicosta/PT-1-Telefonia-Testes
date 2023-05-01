@@ -62,7 +62,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682952017302</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refiz o método fazerChamada, agora trato os espaços no array como credito e não mais como a falta dele">
+      <created>1682965278450</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682965278450</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,6 +86,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Eu instanciei &quot;recargas&quot; em PrePago e também fiz o método fazerChamada" />
     <MESSAGE value="Fiz o método recarregar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fiz o método recarregar" />
+    <MESSAGE value="refiz o método fazerChamada, agora trato os espaços no array como credito e não mais como a falta dele" />
+    <option name="LAST_COMMIT_MESSAGE" value="refiz o método fazerChamada, agora trato os espaços no array como credito e não mais como a falta dele" />
   </component>
 </project>

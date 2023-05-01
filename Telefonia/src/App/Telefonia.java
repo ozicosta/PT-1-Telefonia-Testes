@@ -49,11 +49,28 @@ public class Telefonia {
 			 
 		}
 		if (plano == 2) {
-			PrePago assinantePrePago = new PrePago(12345678910L, "Fulana de Lá", 1399166778);
-			System.out.println(assinantePrePago.toString());
+			System.out.println("Digite o CPF: ");
+			long inputCpf = input.nextLong();
+
+			System.out.println("Digite seu Nome: ");
+			String inputNome = input.next();
+
+			System.out.println("Digite o numero desejado: ");
+			int inputNumero = input.nextInt();
+
+			System.out.println("Digite o valor do plano: ");
+			float inputAssinatura = input.nextFloat();
+
+			for(int i = 0; i <prePagos.length; i++) {
+				if(prePagos[i] == null) {
+					this.prePagos[i] = new PrePago(inputCpf, inputNome, inputNumero, inputAssinatura);
+					numPosPagos += 1;
+					break;
+				}
 		}
 
 	}
+}
 
 	public void listarAssinantes() {
 
