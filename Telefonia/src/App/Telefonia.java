@@ -92,11 +92,20 @@ public class Telefonia {
 	}
 
 	public void imprimirFaturas() {
-
+	//Retorna o método imprimirFatura em posições não vazias do vetor posPagos
+		for(int i = 0; i < posPagos.length; i++) {
+			if(posPagos[i] != null) {
+				posPagos[i].imprimirFatura(1);
+			}
+		}
 	}
 
 	public static void main(String[] args) {
 		Telefonia telefonia = new Telefonia();
+		
 		telefonia.cadastrarAssinante();
+		telefonia.fazerChamada();
+		
+		telefonia.imprimirFaturas();
 	}
 }
