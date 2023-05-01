@@ -49,25 +49,46 @@ public class Telefonia {
 			 
 		}
 		if (plano == 2) {
-			PrePago assinantePrePago = new PrePago(12345678910L, "Fulana de Lá", 1399166778);
-			System.out.println(assinantePrePago.toString());
+			System.out.println("Digite o CPF: ");
+			long inputCpf = input.nextLong();
+
+			System.out.println("Digite seu Nome: ");
+			String inputNome = input.next();
+
+			System.out.println("Digite o numero desejado: ");
+			int inputNumero = input.nextInt();
+
+			System.out.println("Digite o valor do plano: ");
+			float inputAssinatura = input.nextFloat();
+
+			for(int i = 0; i <prePagos.length; i++) {
+				if(prePagos[i] == null) {
+					this.prePagos[i] = new PrePago(inputCpf, inputNome, inputNumero, inputAssinatura);
+					numPosPagos += 1;
+					break;
+				}
 		}
 
 	}
+}
 
 	public void listarAssinantes() {
 
 	}
 
-	public void fazerChamada() {
+	public void fazerChamada()
+	{
 		System.out.println("Qual é o tipo do assinante?\n1 - Pos pago\n2 - Pre pago\n");
 		int plano = input.nextInt();
 		System.out.println("Digite o CPF: ");
 		long inputCpf = input.nextLong();
 		
-		if(plano == 1) {
-			for(int i = 0; i < posPagos.length; i++) {
-				if(posPagos[i].getCpf() == inputCpf) {
+		if(plano == 1)
+		{
+			for(int i = 0; i < posPagos.length; i++)
+			{
+				if(posPagos[i].getCpf() == inputCpf)
+				{
 					System.out.println("Qual a duracao da chamada?");
 					int inputDuracao = input.nextInt();
 					GregorianCalendar dataChamada = new GregorianCalendar();
@@ -76,7 +97,33 @@ public class Telefonia {
 				}
 			}
 		}
-		
+
+		if(plano == 2)
+		{
+			for(int i = 0; i < prePagos.length; i++)
+			{
+				if(prePagos[i].getCpf() == inputCpf)
+				{
+					System.out.println("Qual a duracao da chamada?");
+					int inputDuracao = input.nextInt();
+					GregorianCalendar dataChamada = new GregorianCalendar();
+					prePagos[i].fazerChamada(dataChamada, inputDuracao);
+					break;
+				}
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 
 	public void fazerRecarga() {
