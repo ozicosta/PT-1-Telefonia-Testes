@@ -32,7 +32,17 @@ public class PrePago extends Assinante {
 	}
 
 	public void recarregar(GregorianCalendar data, float valor) {
+		//o laço percorre o array procurando se há espaço para novas recargas
+		for (int i = 0; i < recargas.length; i++) {
+			if (recargas[i] != null)//caso o array esteja vazio(sem crédito) ele printa a mensagem abaixo
+			{
+				System.out.println("Você ainda não pode fazer recargas.");
+			} else if (recargas[i] == null) {
+				valor = recargas[i].getValor(); //do contrario o valor de recarga é atualizado
+				data.get(GregorianCalendar.DAY_OF_MONTH); //esta linha registra o dia da recarga, minha duvida ainda é "que variavel recebe esta data?"
+			}
 
+		}
 	}
 
 	public void imprimirFatura(int mes) {
