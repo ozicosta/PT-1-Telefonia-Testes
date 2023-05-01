@@ -140,9 +140,13 @@ public class Telefonia {
 
 	public void imprimirFaturas() {
 	//Retorna o método imprimirFatura em posições não vazias do vetor posPagos
+		
+		System.out.println("Informe o número do mês da fatura");
+		int inputMes = input.nextInt() - 1;//o mês no GregorianCalendar conta a partir de 0
+		
 		for(int i = 0; i < posPagos.length; i++) {
 			if(posPagos[i] != null) {
-				posPagos[i].imprimirFatura(1);
+				posPagos[i].imprimirFatura(inputMes);
 			}
 		}
 	}
