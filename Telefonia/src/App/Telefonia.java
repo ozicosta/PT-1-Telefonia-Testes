@@ -159,7 +159,10 @@ public class Telefonia {
 			System.out.println("1 - Cadastrar Assinante");
 			System.out.println("2 - Listar Assinantes");
 			System.out.println("3 - Fazer Chamada");
-			System.out.println("4 - Imprimir Fatura");
+			System.out.println("4 - Fazer Recarga");
+			System.out.println("5 - Localizar Pre Pago");
+			System.out.println("6 - Localizar Pos Pago");
+			System.out.println("7 - Imprimir Fatura");
 			System.out.println("0 - Sair");
 			opcao = input.nextInt();
 
@@ -174,6 +177,15 @@ public class Telefonia {
 					telefonia.fazerChamada();
 					break;
 				case 4:
+					System.out.println("Opção ainda nao criada!");
+					break;
+				case 5:
+					System.out.println("Opção ainda nao criada!");
+					break;
+				case 6:
+					System.out.println("Opção ainda nao criada!");
+					break;
+				case 7:
 					telefonia.imprimirFaturas();
 					break;
 				case 0:
