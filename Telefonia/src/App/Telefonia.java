@@ -93,6 +93,30 @@ public class Telefonia {
 	}
 
 	public void fazerChamada() {
+		    // Localiza o assinante pós-pago pelo CPF
+		    PosPago  localizarPosPago ( long  cpf ) {
+			for ( int  i = 0 ; i < posPagos . length ; i ++)
+			{
+			    if ( posPagos [ i ] . getCpf () == cpf )
+			    {
+				return  posPagos [ i ];
+			    }
+			}
+			retornar  nulo ;
+		    }
+
+		    // Localiza o assinante pré-pago pelo CPF
+		    PrePago  localizarPrePago ( long  cpf ) {
+			for ( int  i = 0 ; i < prePagos . length ; i ++)
+			{
+			    if ( prePagos [ i ]. getCpf () == cpf )
+			    {
+				return  prePagos [ i ];
+			    }
+			}
+			retornar  nulo ;
+	 }
+
 		System.out.println("Qual é o tipo do assinante?\n1 - Pos pago\n2 - Pre pago\n");
 		int plano = input.nextInt();
 		System.out.println("Digite o CPF: ");
