@@ -20,8 +20,7 @@ public class Assinante {
 
 	@Override
 	public String toString() {
-		return "Assinante [cpf=" + cpf + ", nome=" + nome + ", numero=" + numero + ", numero de chamadas=" + numChamadas
-				+ "]";
+		return "Assinante [cpf=" + cpf + ", nome=" + nome + ", numero=" + numero+ "]";
 	}
 
 }
