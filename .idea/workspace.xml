@@ -7,7 +7,6 @@
     <list default="true" id="83fcdb1e-6a65-46ff-87ed-2c4d31b315d4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Telefonia/src/App/PrePago.java" beforeDir="false" afterPath="$PROJECT_DIR$/Telefonia/src/App/PrePago.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Telefonia/src/App/Telefonia.java" beforeDir="false" afterPath="$PROJECT_DIR$/Telefonia/src/App/Telefonia.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +20,19 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="5405810a-b5df-4a2b-af4b-e5e80f737fca" />
+        <option name="url" value="https://github.com/Gabiru-cpu/PT-1-Telefonia.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682965278450</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Modifiquei o cadastrarAssinante para poder cadastrar também clientes prePago">
+      <created>1682966533732</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682966533732</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,6 +106,7 @@
     <MESSAGE value="Eu instanciei &quot;recargas&quot; em PrePago e também fiz o método fazerChamada" />
     <MESSAGE value="Fiz o método recarregar" />
     <MESSAGE value="refiz o método fazerChamada, agora trato os espaços no array como credito e não mais como a falta dele" />
-    <option name="LAST_COMMIT_MESSAGE" value="refiz o método fazerChamada, agora trato os espaços no array como credito e não mais como a falta dele" />
+    <MESSAGE value="Modifiquei o cadastrarAssinante para poder cadastrar também clientes prePago" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifiquei o cadastrarAssinante para poder cadastrar também clientes prePago" />
   </component>
 </project>

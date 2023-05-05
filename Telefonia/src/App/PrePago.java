@@ -21,6 +21,13 @@ public class PrePago extends Assinante {
 
 		//caso todos espaços do array estejam preechidos(sem credito)
 		if(this.numChamadas == this.chamadas.length) {
+
+			//esta condiçãõ verifica também se há créditos disponiveis para executar a chamada
+			if(creditos<=0){
+				System.out.println("Não possui créditos suficientes para completar esta ligação.");
+			}
+
+			//caso haja creditos porém não tenha mais chamadas disponiveis, ele exibe a mensagem mesmo assim
 			System.out.println("Não possui créditos suficientes para completar esta ligação.");
 		}
 
