@@ -94,7 +94,6 @@ public class PrePago extends Assinante {
 		
 		// imprime a fatura do assinante
 		System.out.println("Total em chamadas: R$ " + String.format("%.2f", totalChamadas));
-		System.out.println("Total em chamadas: R$ " + totalChamadas);
 		System.out.println("Total em recargas: R$ " + String.format("%.2f", totalRecargas));
 		System.out.println(("Créditos: R$ " + String.format("%.2f", creditos));
 
