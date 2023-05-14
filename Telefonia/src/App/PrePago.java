@@ -84,11 +84,12 @@ public class PrePago extends Assinante {
 		float totalRecargas = 0; // variável para armazenar o total de recargas do mês
 		
 		// laço for que percorre o array de recargas do assinante e calcula o total de recargas realizadas no mês
-		for (int i = 0; i < this.numRecargas; i++) {
-			Recarga recarga = this.recargas[i];
+		for (int i = 0; i < numRecargas; i++) {
 			// verifica se a recarga foi realizada no mês desejado
-			if (recarga.getData().get(GregorianCalendar.MONTH) == mes - 1) {
-				totalRecargas += recarga.getValor(); // adiciona o valor da recarga ao total
+			Recarga recarga = recargas[i];
+			if (recarga.getData().get(GregorianCalendar.MONTH) == mes) {
+				System.out.println(recarga.toString());
+				totalRecargas += recarga.getValor(); // adiciona o valor da recarga ao totala ao total
 			}
 		}
 		
