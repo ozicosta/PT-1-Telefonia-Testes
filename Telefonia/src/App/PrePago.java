@@ -12,7 +12,6 @@ public class PrePago extends Assinante {
 
 	public PrePago(long cpf, String nome, int numero,float assinatura) {
 		super(cpf, nome, numero);
-		this.assinatura = assinatura;
 		this.recargas = new Recarga[10];//iniciei o array com dez espaços de inicio mas podemos alterar depois
 	}
 
@@ -42,15 +41,17 @@ public class PrePago extends Assinante {
 
 	public void recarregar(GregorianCalendar data, float valor) {
 
-		if(this.recargas.length == 0 || this.recargas.length == this.recargas.length){
+		if(this.numRecargas == this.recargas.length){
 			System.out.println("Você ainda não pode fazer recargas.");
 		} else
 
 		//o laço percorre o array procurando se há espaço para novas recargas
 		for (int i = 0; i < recargas.length; i++) {
 			 if (recargas[i] == null) {
-				valor = recargas[i].getValor(); //do contrario o valor de recarga é atualizado
-				data.get(GregorianCalendar.DAY_OF_MONTH); //esta linha registra o dia da recarga, minha duvida ainda é "que variavel recebe esta data?"
+				//valor = recargas[i].getValor(); //do contrario o valor de recarga é atualizado
+				recargas[numRecargas] = new Recarga(data, valor);//preenceh o espaço do array que estava vazio com a data e o valor
+				numRecargas++; //atualiza o valor de numRecarga
+				creditos += valor; //atualiza também o valor de créditos
 			}else;
 
 		}
@@ -90,7 +91,7 @@ public class PrePago extends Assinante {
 		// imprime a fatura do assinante
 		System.out.println("Total em chamadas: R$ " + String.format("%.2f", totalChamadas));
 		System.out.println("Total em recargas: R$ " + String.format("%.2f", totalRecargas));
-		System.out.println(("Créditos: R$ " + String.format("%.2f", creditos));
+		System.out.println("Créditos: R$ " + String.format("%.2f", creditos));
 
 	}
 }

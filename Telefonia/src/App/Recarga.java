@@ -4,16 +4,21 @@ import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 public class Recarga {
+	//atibutos
 	private GregorianCalendar data;
 	private float valor;
-	public Recarga() {
-	
+
+
+	public Recarga(GregorianCalendar data, float valor) {
+		this.data = data;
+		this.valor = valor;
 	}
+
 	public GregorianCalendar getData() {
-		return data;
+		return this.data;
 	}
 	public float getValor() {
-		return valor;
+		return this.valor;
 	}
 	
 	@Override
