@@ -19,18 +19,10 @@ public class PrePago extends Assinante {
 
 	public void fazerChamada(GregorianCalendar data, int duracao) {
 
-		//caso todos espaços do array estejam preechidos(sem credito)
-		if(this.numChamadas == this.chamadas.length) {
-
-			//esta condiçãõ verifica também se há créditos disponiveis para executar a chamada
-			if(creditos<=0){
-				System.out.println("Não possui créditos suficientes para completar esta ligação.");
-			} else 
-
-			//caso haja creditos porém não tenha mais chamadas disponiveis, ele exibe a mensagem mesmo assim
+		//caso todos espaços do array estejam preechidos(sem credito) ou credito for menor ou igual a zero, printa que não pode fazer a ligação
+		if(this.numChamadas == this.chamadas.length || this.creditos <=0) {
 			System.out.println("Não possui créditos suficientes para completar esta ligação.");
-		}
-
+		} else
 
 		//do contrário passamos para o laço for que percorre o array a procura de créditos
 		for(int i =0;i<this.chamadas.length;i++)
@@ -49,15 +41,17 @@ public class PrePago extends Assinante {
 	}
 
 	public void recarregar(GregorianCalendar data, float valor) {
+
+		if(this.recargas.length == 0 || this.recargas.length == this.recargas.length){
+			System.out.println("Você ainda não pode fazer recargas.");
+		} else
+
 		//o laço percorre o array procurando se há espaço para novas recargas
 		for (int i = 0; i < recargas.length; i++) {
-			if (recargas[i] != null)//caso o array esteja vazio(sem crédito) ele printa a mensagem abaixo
-			{
-				System.out.println("Você ainda não pode fazer recargas.");
-			} else if (recargas[i] == null) {
+			 if (recargas[i] == null) {
 				valor = recargas[i].getValor(); //do contrario o valor de recarga é atualizado
 				data.get(GregorianCalendar.DAY_OF_MONTH); //esta linha registra o dia da recarga, minha duvida ainda é "que variavel recebe esta data?"
-			}
+			}else;
 
 		}
 	}
