@@ -10,9 +10,6 @@ public class Telefonia {
 	private int numPosPagos;
 	private PosPago[] posPagos;
 
-	Assinante[] assinantes = new Assinante[10];
-	private int cadastro = 0;
-
 	private static Scanner input = new Scanner(System.in);
 
 	public Telefonia() {
@@ -25,7 +22,7 @@ public class Telefonia {
 	public void cadastrarAssinante() {
 		// criar um novo objeto Assinante
 		System.out.println("Qual tipo de assinatura você deseja:");
-		System.out.println("1 - Pos pago\n2 - Pre pago\n");
+		System.out.println("1 - Pós-pago\n2 - Pré-pago\n");
 
 		int plano = input.nextInt();
 
@@ -44,8 +41,6 @@ public class Telefonia {
 			System.out.println("Digite o valor do plano: ");
 			float inputAssinatura = input.nextFloat();
 
-			assinantes[cadastro] = new Assinante(inputCpf, inputNome, inputNumero);
-			cadastro++;
 
 			for (int i = 0; i < posPagos.length; i++) {
 				if (posPagos[i] == null) {
@@ -84,12 +79,13 @@ public class Telefonia {
 	public void listarAssinantes() {
 		System.out.println("Assinantes:");
 
-		for (int i = 0; i < assinantes.length; i++) {
-			if (assinantes[i] != null) {
-				System.out.println(assinantes[i].toString());
-			}
+		for (int i = 0; i < this.numPosPagos; i++) {
+			System.out.println(this.posPagos[i].toString());
 		}
 
+		for (int i = 0; i < this.numPrePagos; i++) {
+			System.out.println(this.prePagos[i].toString());
+		}
 	}
 
 	public void fazerChamada() {
@@ -171,9 +167,7 @@ public class Telefonia {
 			System.out.println("2 - Listar Assinantes");
 			System.out.println("3 - Fazer Chamada");
 			System.out.println("4 - Fazer Recarga");
-			System.out.println("5 - Localizar Pre Pago");
-			System.out.println("6 - Localizar Pos Pago");
-			System.out.println("7 - Imprimir Fatura");
+			System.out.println("5 - Imprimir Fatura");
 			System.out.println("0 - Sair");
 			opcao = input.nextInt();
 
@@ -191,12 +185,6 @@ public class Telefonia {
 					System.out.println("Opção ainda nao criada!");
 					break;
 				case 5:
-					System.out.println("Opção ainda nao criada!");
-					break;
-				case 6:
-					System.out.println("Opção ainda nao criada!");
-					break;
-				case 7:
 					telefonia.imprimirFaturas();
 					break;
 				case 0:
