@@ -96,29 +96,28 @@ public class Telefonia {
 		long inputCpf = input.nextLong();
 
 		if (plano == 1) {
-			for (int i = 0; i < posPagos.length; i++) {
-				if (posPagos[i].getCpf() == inputCpf) {
-					System.out.println("Qual a duracao da chamada?");
-					int inputDuracao = input.nextInt();
-					GregorianCalendar dataChamada = new GregorianCalendar();
-					posPagos[i].fazerChamada(dataChamada, inputDuracao);
-					break;
-				}
+			PosPago posPago = localizarPosPago(inputCpf);
+				if (posPago != null) {
+			    System.out.println("Qual a duração da chamada?");
+			    int inputDuracao = input.nextInt();
+			    GregorianCalendar dataChamada = new GregorianCalendar();
+			    posPago.fazerChamada(dataChamada, inputDuracao);
+			} else {
+			    System.out.println("Assinante não encontrado.");
 			}
-		}
-
-		if (plano == 2) {
-			for (int i = 0; i < prePagos.length; i++) {
-				if (prePagos[i].getCpf() == inputCpf) {
-					System.out.println("Qual a duracao da chamada?");
-					int inputDuracao = input.nextInt();
-					GregorianCalendar dataChamada = new GregorianCalendar();
-					prePagos[i].fazerChamada(dataChamada, inputDuracao);
-					break;
-				}
+		}else if (plano == 2) {
+			PrePago prePago = localizarPrePago(inputCpf);
+			if (prePago != null) {
+			    System.out.println("Qual a duração da chamada?");
+			    int inputDuracao = input.nextInt();
+			    GregorianCalendar dataChamada = new GregorianCalendar();
+			    prePago.fazerChamada(dataChamada, inputDuracao);
+			} else {
+			    System.out.println("Assinante não encontrado.");
 			}
-		}
-
+		    } else {
+			System.out.println("Plano inválido.");
+		  }
 	}
 
 	public void fazerRecarga() {
