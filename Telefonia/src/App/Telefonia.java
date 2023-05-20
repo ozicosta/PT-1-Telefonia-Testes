@@ -42,12 +42,11 @@ public class Telefonia {
 			float inputAssinatura = input.nextFloat();
 
 
-			for (int i = 0; i < posPagos.length; i++) {
-				if (posPagos[i] == null) {
-					this.posPagos[i] = new PosPago(inputCpf, inputNome, inputNumero, inputAssinatura);
-					numPosPagos += 1;
-					break;
-				}
+			if(localizarPosPago(inputCpf) != null){
+				System.out.println("CPF já cadastrado como pós-pago!");
+			} else {
+				this.posPagos[numPosPagos] = new PosPago(inputCpf, inputNome, inputNumero, inputAssinatura);
+				numPosPagos += 1;
 			}
 
 		}
@@ -62,15 +61,12 @@ public class Telefonia {
 			System.out.println("Digite o numero desejado: ");
 			int inputNumero = input.nextInt();
 
-			System.out.println("Digite o valor do plano: ");
-			float inputAssinatura = input.nextFloat();
-
-			for (int i = 0; i < prePagos.length; i++) {
-				if (prePagos[i] == null) {
-					this.prePagos[i] = new PrePago(inputCpf, inputNome, inputNumero, inputAssinatura);
-					numPosPagos += 1;
-					break;
-				}
+			if(localizarPrePago(inputCpf) != null){
+				System.out.println("CPF já cadastrado como pré-pago!");
+			} else {
+				this.prePagos[numPrePagos] = new PrePago(inputCpf, inputNome, inputNumero);
+				numPrePagos += 1;
+				System.out.println("Cadastro realizado!");
 			}
 
 		}
@@ -78,11 +74,11 @@ public class Telefonia {
 
 	public void listarAssinantes() {
 		System.out.println("Assinantes:");
-
+		System.out.println("========== PÓS-PAGOS =================");
 		for (int i = 0; i < this.numPosPagos; i++) {
 			System.out.println(this.posPagos[i].toString());
 		}
-
+		System.out.println("========== PRÉ-PAGOS =================");
 		for (int i = 0; i < this.numPrePagos; i++) {
 			System.out.println(this.prePagos[i].toString());
 		}
@@ -90,7 +86,7 @@ public class Telefonia {
 
 	public void fazerChamada() {
 		
-		System.out.println("Qual é o tipo do assinante?\n1 - Pos pago\n2 - Pre pago\n");
+		System.out.println("Qual é o tipo do assinante?\n1 - Pós-pago\n2 - Pré-pago\n");
 		int plano = input.nextInt();
 		System.out.println("Digite o CPF: ");
 		long inputCpf = input.nextLong();
@@ -102,6 +98,7 @@ public class Telefonia {
 			    int inputDuracao = input.nextInt();
 			    GregorianCalendar dataChamada = new GregorianCalendar();
 			    posPago.fazerChamada(dataChamada, inputDuracao);
+				System.out.println("Chamada realizada!");
 			} else {
 			    System.out.println("Assinante não encontrado.");
 			}
@@ -115,13 +112,25 @@ public class Telefonia {
 			} else {
 			    System.out.println("Assinante não encontrado.");
 			}
-		    } else {
+		} else {
 			System.out.println("Plano inválido.");
-		  }
+		}
 	}
 
 	public void fazerRecarga() {
+		System.out.println("Informe o CPF do assinante: ");
+		long inputCpf = input.nextLong();
 
+		PrePago assinantePrePago = localizarPrePago(inputCpf);
+		if(assinantePrePago == null) {
+			System.out.println("Assinante pré-pago não encontrado");
+		} else {
+			System.out.println("Qual o valor da recarga? ");
+			float valorRecarga = input.nextFloat();
+			GregorianCalendar dataRecarga = new GregorianCalendar();
+			assinantePrePago.recarregar(dataRecarga, valorRecarga);
+			System.out.println("Recarga realizado!");
+		}
 	}
 
 	private PrePago localizarPrePago(long cpf) {
@@ -148,10 +157,14 @@ public class Telefonia {
 		System.out.println("Informe o número do mês da fatura");
 		int inputMes = input.nextInt() - 1;// o mês no GregorianCalendar conta a partir de 0
 
-		for (int i = 0; i < posPagos.length; i++) {
-			if (posPagos[i] != null) {
-				posPagos[i].imprimirFatura(inputMes);
-			}
+		System.out.println("========== PÓS-PAGOS =================");
+		for (int i = 0; i < this.numPosPagos; i++) {
+			this.posPagos[i].imprimirFatura(inputMes);
+		}
+
+		System.out.println("========== PRÉ-PAGOS =================");
+		for (int i = 0; i < this.numPrePagos; i++) {
+			this.prePagos[i].imprimirFatura(inputMes);
 		}
 	}
 
@@ -181,7 +194,7 @@ public class Telefonia {
 					telefonia.fazerChamada();
 					break;
 				case 4:
-					System.out.println("Opção ainda nao criada!");
+					telefonia.fazerRecarga();
 					break;
 				case 5:
 					telefonia.imprimirFaturas();

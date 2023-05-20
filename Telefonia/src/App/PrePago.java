@@ -4,13 +4,11 @@ import java.util.GregorianCalendar;
 
 public class PrePago extends Assinante {
 
-	private float assinatura;//apos declarar esta variavel o problema da linha 15 parou
-
 	private int numRecargas;
 	private float creditos;
 	private Recarga[] recargas;
 
-	public PrePago(long cpf, String nome, int numero,float assinatura) {
+	public PrePago(long cpf, String nome, int numero) {
 		super(cpf, nome, numero);
 		this.recargas = new Recarga[10];//iniciei o array com dez espaços de inicio mas podemos alterar depois
 	}
@@ -21,21 +19,11 @@ public class PrePago extends Assinante {
 		//caso todos espaços do array estejam preechidos(sem credito) ou credito for menor ou igual a zero, printa que não pode fazer a ligação
 		if(this.numChamadas == this.chamadas.length || this.creditos <=0) {
 			System.out.println("Não possui créditos suficientes para completar esta ligação.");
-		} else
+		} else {
 
-		//do contrário passamos para o laço for que percorre o array a procura de créditos
-		for(int i =0;i<this.chamadas.length;i++)
-		{
-			//ele procura créditos
-			if (this.chamadas[i]==null)//caso o array tenha espaço(credito)
-			{
-				//quando acha creditos ele atualiza os dados
-				this.chamadas[i] = new Chamada(data,duracao); //chamada recebe a data e a duração passadas pelo usuário
-				this.numChamadas += 1; //numChamadas aumenta +1
-				this.creditos -=  (float) ((float)duracao * 1.45); //aqui ele atualiza o valor de crédito cobrando de acordo com a duração da chamada(fiz o casting para float porque o valor provido é double porém o requerido é float
-			}
-
-
+			this.chamadas[numChamadas] = new Chamada(data,duracao); //chamada recebe a data e a duração passadas pelo usuário
+			this.numChamadas += 1; //numChamadas aumenta +1
+			this.creditos -=  (float) ((float)duracao * 1.45f); //aqui ele atualiza o valor de crédito cobrando de acordo com a duração da chamada(fiz o casting para float porque o valor provido é double porém o requerido é float
 		}
 	}
 
@@ -43,18 +31,14 @@ public class PrePago extends Assinante {
 
 		if(this.numRecargas == this.recargas.length){
 			System.out.println("Você ainda não pode fazer recargas.");
-		} else
-
-		//o laço percorre o array procurando se há espaço para novas recargas
-		for (int i = 0; i < recargas.length; i++) {
-			 if (recargas[i] == null) {
-				//valor = recargas[i].getValor(); //do contrario o valor de recarga é atualizado
-				recargas[numRecargas] = new Recarga(data, valor);//preenceh o espaço do array que estava vazio com a data e o valor
-				numRecargas++; //atualiza o valor de numRecarga
-				creditos += valor; //atualiza também o valor de créditos
-			}else;
-
+		} else {
+			
+			recargas[numRecargas] = new Recarga(data, valor);//preenche o espaço do array que estava vazio com a data e o valor
+			numRecargas++; //atualiza o valor de numRecarga
+			creditos += valor; //atualiza também o valor de créditos
+			
 		}
+
 	}
 
 	public void imprimirFatura(int mes) {

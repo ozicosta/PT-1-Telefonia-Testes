@@ -24,6 +24,6 @@ public class Recarga {
 	@Override
 	public String toString() {
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-		return "Recarga [data=" + formato.format(data) + ", valor=" + valor + "]";
+		return "Data da recarga= " + formato.format(data.getTime()) + ", valor= R$ " + valor + " ";
 	}
 }
