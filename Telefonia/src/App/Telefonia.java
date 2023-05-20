@@ -1,5 +1,8 @@
 package App;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
@@ -96,8 +99,19 @@ public class Telefonia {
 				if (posPago != null) {
 			    System.out.println("Qual a duração da chamada?");
 			    int inputDuracao = input.nextInt();
+				System.out.println("Insira a data da chamada no formato dd/mm/aaaa");
+				input.nextLine();
+				String inputData = input.nextLine();
+				SimpleDateFormat frmt = new SimpleDateFormat("dd/MM/yyyy");
+				Date data = null;
+				try {
+					data = (Date) frmt.parse(inputData);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			    GregorianCalendar dataChamada = new GregorianCalendar();
-			    posPago.fazerChamada(dataChamada, inputDuracao);
+			    dataChamada.setTime(data);
+				posPago.fazerChamada(dataChamada, inputDuracao);
 				System.out.println("Chamada realizada!");
 			} else {
 			    System.out.println("Assinante não encontrado.");
@@ -107,7 +121,18 @@ public class Telefonia {
 			if (prePago != null) {
 			    System.out.println("Qual a duração da chamada?");
 			    int inputDuracao = input.nextInt();
+			    System.out.println("Insira a data da chamada no formato dd/mm/aaaa");
+				input.nextLine();
+				String inputData = input.nextLine();
+				SimpleDateFormat frmt = new SimpleDateFormat("dd/MM/yyyy");
+				Date data = null;
+				try {
+					data = (Date) frmt.parse(inputData);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			    GregorianCalendar dataChamada = new GregorianCalendar();
+			    dataChamada.setTime(data);
 			    prePago.fazerChamada(dataChamada, inputDuracao);
 			} else {
 			    System.out.println("Assinante não encontrado.");
@@ -127,7 +152,18 @@ public class Telefonia {
 		} else {
 			System.out.println("Qual o valor da recarga? ");
 			float valorRecarga = input.nextFloat();
+			System.out.println("Insira a data da chamada no formato dd/mm/aaaa");
+			input.nextLine();
+			String inputData = input.nextLine();
+			SimpleDateFormat frmt = new SimpleDateFormat("dd/MM/yyyy");
+			Date data = null;
+			try {
+				data = (Date) frmt.parse(inputData);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			GregorianCalendar dataRecarga = new GregorianCalendar();
+			dataRecarga.setTime(data);
 			assinantePrePago.recarregar(dataRecarga, valorRecarga);
 			System.out.println("Recarga realizado!");
 		}
