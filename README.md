@@ -1,15 +1,10 @@
 # 1º Trabalho Prático – Empresa de Telefonia Celular
 
 ## Membros do Grupo
-
-Gabriel Henrique Xavier Librande
-RA: 0050482121018
-Samuel Luiz Alves de Araujo
-RA: 0050482123042
-Ozieni Souza da Costa
-RA: 0050482121019
-Victor Manuel Betancourt Barros
-RA: 0050482121013
+- Gabriel Henrique Xavier Librande RA: 0050482121018
+- Samuel Luiz Alves de Araujo RA: 0050482123042
+- Ozieni Souza da Costa RA: 0050482121019
+- Victor Manuel Betancourt Barros RA: 0050482121013
 
 ## Introdução
 Este trabalho consiste em implementar um sistema de cadastro de assinantes de uma empresa de telefonia celular, explorando os conceitos de orientação a objetos estudados até aqui. O sistema deve seguir o diagrama de classes UML mostrado abaixo:
