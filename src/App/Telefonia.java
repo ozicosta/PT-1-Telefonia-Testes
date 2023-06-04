@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Telefonia {
@@ -260,20 +261,31 @@ public class Telefonia {
     }
     
     public void imprimirFaturas() {
-        // Retorna o método imprimirFatura em posições não vazias do vetor posPagos
         
-        System.out.println("Informe o número do mês da fatura");
+        System.out.println("Digite o mês da fatura");
         int inputMes = input.nextInt() - 1;// o mês no GregorianCalendar conta a partir de 0
         
-        System.out.println("========== PÓS-PAGOS =================");
-        for (int i = 0; i < this.numPosPagos; i++) {
-            this.posPagos[i].imprimirFatura(inputMes);
+        System.out.println("Digite o ano da fatura");
+        int inputAno = input.nextInt();
+
+        System.out.println("============================ PRÉ-PAGOS ============================");
+        for (Assinante assinante : assinantes) {
+            
+            if(assinante instanceof PrePago) {
+
+                assinante.imprimirFatura(inputMes, inputAno);
+            }
         }
         
-        System.out.println("========== PRÉ-PAGOS =================");
-        for (int i = 0; i < this.numPrePagos; i++) {
-            this.prePagos[i].imprimirFatura(inputMes);
+        System.out.println("============================ PÓS-PAGOS ============================");
+        for (Assinante assinante : assinantes) {
+            
+            if(assinante instanceof PosPago) {
+
+                assinante.imprimirFatura(inputMes, inputAno);
+            }
         }
+        
     }
     
     public static void main(String[] args) {
